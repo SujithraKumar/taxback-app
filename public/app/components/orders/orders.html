@@ -1,47 +1,43 @@
 ﻿
 <div class="container " ng-controller="MainController">
-	
-	
 
 	<div class="row ">
 		<div class="col-lg-12 col-md-12 col-sm-12">
-			
 			<navbar></navbar>
-			
 		</div>
 		
 		<div ng-show="loading" class=" loader  loader-margin"></div>
 
-	<div class="row   mb-5 pb-5">
-			<div ng-if="Transactions.length>0 && !loading" class="card-group">
+		<div class="row   mb-5 pb-5">
+				<div ng-if="Transactions.length>0 && !loading" class="card-group">
+					
+					<div class="card setwidth mx-5 mt-5" ng-repeat="transaction in Transactions">
+						<div class="pic-area">
+							<div class="card-block">
+								<h5 class="card-title"><b>{{transaction.user}}</b></h5>
+
+							</div>
+						</div>
+						
+						<ul class="list-group ">
+							<li class="list-group-item cardlistbackground">Amount : {{transaction.amount}} </li>
+							<li class="list-group-item cardlistbackground">Currency : {{transaction.currency}} </li>
+							<li class="list-group-item cardlistbackground">Transaction Date : {{transaction.txn_date}} </li>
+
+						</ul>
+						<div class="card-img-overlay text-right pt-4 pl-4 mr-0 overlaysetting">
+							<button type="button" class="btn btn-secondary btn-sm setbackgeround " data-toggle="modal" data-target=".bd-create-modal-lg" ng-click="editDetails(transaction)">&#x270E;</button>
 				
-				<div class="card setwidth mx-5 mt-5" ng-repeat="transaction in Transactions">
-					<div class="pic-area">
-						<div class="card-block">
-							<h5 class="card-title"><b>{{transaction.user}}</b></h5>
+							<button type="button" id="orderCancellation"  class="btn btn-secondary btn-sm setbackgeround" ng-click="CancelItemConfirmation(transaction)"><span aria-hidden="true">&times;</span></button>
+							
 
 						</div>
 					</div>
-					
-					<ul class="list-group ">
-						<li class="list-group-item cardlistbackground">Amount : {{transaction.amount}} </li>
-						<li class="list-group-item cardlistbackground">Currency : {{transaction.currency}} </li>
-						<li class="list-group-item cardlistbackground">Transaction Date : {{transaction.txn_date}} </li>
-
-					</ul>
-					<div class="card-img-overlay text-right pt-4 pl-4 mr-0 overlaysetting">
-						<button type="button" class="btn btn-secondary btn-sm setbackgeround " data-toggle="modal" data-target=".bd-create-modal-lg" ng-click="editDetails(transaction)">&#x270E;</button>
-			
-						<button type="button" id="orderCancellation"  class="btn btn-secondary btn-sm setbackgeround" ng-click="CancelItemConfirmation(transaction)"><span aria-hidden="true">&times;</span></button>
-						
-
-					</div>
 				</div>
-			</div>
-			<div class="ml-5 mt-5 pl-5">
-				<h1  class="text-center ml-5 padd-left" ng-if="Transactions.length == 0 && !loading">No Data</h1>
-			</div>
-	</div>
+				<div class="ml-5 mt-5 pl-5">
+					<h1  class="text-center ml-5 padd-left" ng-if="Transactions.length == 0 && !loading">No Data</h1>
+				</div>
+		</div>
 	</div>
 
 	<div class="modal fade bd-confirmation-modal-lg" id="confirmationModal" tabindex="-1" role="dialog">
@@ -105,16 +101,10 @@
 							<div class="row m-5 padd text-center">
 								<button type="button" class="btn btn-outline-success mr-5" data-dismiss="modal" ng-click="addNewTransaction(newUser)">{{edit ? "Update" : "
 								Create"}}</button>
-								<button type="button" class="btn btn-outline-danger mr-3" data-dismiss="modal" ng-click="cancelOrder()"> cancel</button>
+								<button type="button" class="btn btn-outline-danger mr-3" data-dismiss="modal" ng-click="cancel()"> cancel</button>
 
 							</div>
-
-
-
-
 						</div>
-
-
 
 					</div>
 
@@ -128,19 +118,19 @@
 </div>
 <script>
 	
-var today = new Date();
-var dd = today.getDate();
-var mm = today.getMonth()+1; //January is 0!
-var yyyy = today.getFullYear();
- if(dd<10){
-        dd='0'+dd
-    } 
-    if(mm<10){
-        mm='0'+mm
-    } 
+	var today = new Date();
+	var dd = today.getDate();
+	var mm = today.getMonth()+1; //January is 0!
+	var yyyy = today.getFullYear();
+	 if(dd<10){
+	        dd='0'+dd
+	    } 
+	    if(mm<10){
+	        mm='0'+mm
+	    } 
 
-today = yyyy+'-'+mm+'-'+dd;
-document.getElementById("txnDate").setAttribute("max", today);
+	today = yyyy+'-'+mm+'-'+dd;
+	document.getElementById("txnDate").setAttribute("max", today);
 </script>
 
 

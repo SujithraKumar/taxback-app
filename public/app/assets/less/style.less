@@ -1,159 +1,140 @@
 
-@bodyBackgroundColor:#e7e5e3;
-@empaticaHeaderColor:#bc204b;
-@empaticaFontColor:white;
-@containerBackgroundColor:white;
-@containerMaxWidth: 1280px;
-@largeScreenWidth:1200px;
-@mediumScreenWidth:992px;
-@smallScreenWidth:768px;
-@left:left;
-@center:center;
-@right:right;
-@top:top;
-@bottom:bottom;
+@bodyBackgroundColor:#ffffff;
+@cardListbg:#000000;
+@maxHeight:100%;
+@maxWidth:100%;
 
 
-.bodysetting{
-	background-color: @bodyBackgroundColor;
-    height: 100%;
-    width: 100%;
-	padding:0px;
+
+body {
+  background-color: #e7e5e3;
+  height: @maxHeight;
+  width: @maxWidth;
+  padding: 0px;
+}
+body .container {
+  background: @bodyBackgroundColor;
+  max-width: 1280px;
+  min-height: 759px;
 }
 
-body{
-	
-  .bodysetting;
-}
+@media (min-width: 1280px)
+  .container {
+    width: 1170px;
+  }
 
-.container{
-	
-	background:@containerBackgroundColor;
-	max-width: @containerMaxWidth;
-}
+@media (min-width: 992px)
+  .container {
+    width: 970px;
+  }
 
-@media (min-width: @containerMaxWidth){
-	
-	.container{
-		width:1170px;
-	}
-}
-
-
-@media (min-width: @mediumScreenWidth){
-.container {
-   	 width: 970px;
-	}	
-}
-
-
-@media (min-width: @smallScreenWidth){
-	
-	.container {
+@media (min-width: 768px) 
+  .container {
     width: 750px;
-	}
+  }
+
+.card .cardlistbackground {
+  color: @bodyBackgroundColor;
+  background-color: @cardListbg;
 }
 
-.empaticaColor{
-	color:@empaticaHeaderColor;
-}
-
-.align{
-
-	 padding-top: 30px;
-    text-align: @center;
-}
-
-
-.floatLeft {
-	float: @left;
-}
-
-.floatRight{
-	float:@right;
-}
-
-.marginLeft {
-	margin-left: 25%;
-}
-
-
-.h2{
+.card{
 	
-	.title{
-		font-size: 2.25rem;
-	}
-
-	.sub_title {
-	font-size: 1.25rem;
-	color: black;
-	padding-top: 2px;
-	text-align: center;
-	}
+ .card-title{
+  text-align: center;
+}
+.pic-area {
+  background-color: #808080;
+  padding-top: 50px;
+}
 
 }
 
-.setBorderRadius{
-	border-radius: 8px;
+
+.topnav {
+  background-color: #413d3e;
+  overflow: hidden;
+  color: @bodyBackgroundColor;
 }
 
-.curve{
-	border-radius: 18px;
+.setwidth {
+       min-width: 219px;
+       max-width: 219px;
+  }
+
+.align-center{
+  text-align: center;
 }
 
-.empaticadesignSet{
-	color:@empaticaFontColor;
-	background-color: @empaticaHeaderColor;
+.padd-left{
+  padding-left: 500px;
 }
 
-.setbottomstyle {
-	margin-top: 95px;
-	background-color: #4a4a4a;
-	height: 165px;
-	margin-bottom: 10px;
-	border-radius:0px !important;
-	padding-bottom: 10%;
+.overlaysetting {
+    margin-top: -27px ;
+    margin-right: -20px;
 }
 
-.form .col-lg-3{
-	text-align:@right;
-	clear: both;
+.setmaxwidth {
+  max-width: 280px;
 }
 
-.empaticalegalstyle{
-    	font-size: .75rem;
-	    color: #fefefe;
-
+.height {
+  min-height: 200px;
 }
 
-.textColor {
-	color:@empaticaFontColor;
+.setbackgeround {
+  background-color: @bodyBackgroundColor;
+  color: #000000;
 }
 
-.setinputwidth{
-	    width: 50%;
+.modal-width {
+  max-width: 400px;
+}
+
+.set-margin{
+  margin-left: 8rem ;
+}
+
+.padd{
+      padding-left: 40px;
+}
+
+.currency-style{
+    margin-left: 5px;
+    padding-right: 100px;
+    padding-left: 100px;
+}
+
+.create-icon{
+    background-color: #007bff;
+    padding-bottom: 3px;
 }
 
 
-.setBoxshadow{
-	box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 3px 4px;
+/*loader  */
+
+.loader {
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #3498db;
+  width: 120px;
+  height: 120px;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
 }
 
-.loginwidth{
-	margin-left: 48%;
-}
-.orderstyle{
-	margin-left: 40%;
-}
-
-
-.topnav{
-	
-	 background-color: @empaticaHeaderColor;
-     overflow: hidden;
-
-     .topnav-right {
-  		float: right;
-	}
+/* Safari */
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
 }
 
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.loader-margin{
+  margin: 250px;
+}

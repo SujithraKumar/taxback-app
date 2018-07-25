@@ -88,9 +88,12 @@ function MainController($scope, $rootScope, $location, MainService) {
 		$('#confirmationModal').modal('show');
 		$scope.CancelledItem=item;
 	}
+
+	$scope.cancel = function(){
+		$('#confirmationModal').modal('hide');
+	}
 	
 	$scope.cancelOrder = function () {
-		$('#confirmationModal').modal('hide');
 		for (i = 0; i < $scope.Transactions.length; i++) {
 			if ($scope.Transactions[i].id == $scope.CancelledItem.id) {
 				$scope.Transactions.splice(i,1);

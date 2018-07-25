@@ -26,13 +26,27 @@ body .container {
     width: 750px;
   }
 
+.card .cardlistbackground {
+  color: #ffffff;
+  background-color: #000000;
+}
+
+.card .card-title{
+  text-align: center;
+}
+
+.card .pic-area {
+  background-color: #808080;
+  padding-top: 50px;
+}
+
 .topnav {
   background-color: #413d3e;
   overflow: hidden;
   color: #ffffff;
 }
 
- .setwidth {
+.setwidth {
        min-width: 219px;
        max-width: 219px;
   }
@@ -45,26 +59,12 @@ body .container {
   padding-left: 500px;
 }
 
-
-
- .card .cardlistbackground {
-  color: #ffffff;
-  background-color: #000000;
-}
-
-.card .card-title{
-  text-align: center;
-}
-
 .overlaysetting {
     margin-top: -27px !important;
     margin-right: -20px !important;
 }
 
-.card .pic-area {
-  background-color: #808080;
-  padding-top: 50px;
-}
+
 .setmaxwidth {
   max-width: 280px;
 }
@@ -77,7 +77,6 @@ body .container {
   background-color: #ffffff;
   color: #000000;
 }
-
 
 .modal-width {
   max-width: 400px;
