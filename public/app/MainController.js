@@ -9,7 +9,7 @@ function MainController($scope, $rootScope, $location, MainService) {
 	$scope.Transactions=[];
 	$scope.currencies=['EUR','INR','GBP','USD'];
 	$scope.newUser={};
-	$location.path('/orders');
+	$location.path('/transactions');
 	$scope.loading=false;
 
 	// Function Declaration
@@ -94,6 +94,7 @@ function MainController($scope, $rootScope, $location, MainService) {
 	}
 	
 	$scope.cancelOrder = function () {
+		$('#confirmationModal').modal('hide');
 		for (i = 0; i < $scope.Transactions.length; i++) {
 			if ($scope.Transactions[i].id == $scope.CancelledItem.id) {
 				$scope.Transactions.splice(i,1);

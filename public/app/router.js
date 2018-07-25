@@ -4,7 +4,7 @@
 
 
 		$routeProvider
-			.when('/orders', {
+			.when('/transactions', {
 				templateUrl:'app/components/orders/orders.html'
 
 			})
