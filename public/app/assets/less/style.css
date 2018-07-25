@@ -97,6 +97,11 @@ body .container {
     padding-left: 100px;
 }
 
+.create-icon{
+    background-color: #007bff;
+    padding-bottom: 3px;
+}
+
 
 /*loader  */
 
