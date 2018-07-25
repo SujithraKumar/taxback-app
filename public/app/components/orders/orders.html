@@ -1,0 +1,150 @@
+﻿
+<div class="container " ng-controller="MainController">
+	
+	
+
+	<div class="row ">
+		<div class="col-lg-12 col-md-12 col-sm-12">
+			
+			<navbar></navbar>
+			
+		</div>
+		
+		<div ng-show="loading" class=" loader  loader-margin"></div>
+
+	<div class="row   mb-5 pb-5">
+			<div ng-if="Transactions.length>0 && !loading" class="card-group">
+				
+				<div class="card setwidth mx-5 mt-5" ng-repeat="transaction in Transactions">
+					<div class="pic-area">
+						<div class="card-block">
+							<h5 class="card-title"><b>{{transaction.user}}</b></h5>
+
+						</div>
+					</div>
+					
+					<ul class="list-group ">
+						<li class="list-group-item cardlistbackground">Amount : {{transaction.amount}} </li>
+						<li class="list-group-item cardlistbackground">Currency : {{transaction.currency}} </li>
+						<li class="list-group-item cardlistbackground">Transaction Date : {{transaction.txn_date}} </li>
+
+					</ul>
+					<div class="card-img-overlay text-right pt-4 pl-4 mr-0 overlaysetting">
+						<button type="button" class="btn btn-secondary btn-sm setbackgeround " data-toggle="modal" data-target=".bd-create-modal-lg" ng-click="editDetails(transaction)">&#x270E;</button>
+			
+						<button type="button" id="orderCancellation"  class="btn btn-secondary btn-sm setbackgeround" ng-click="CancelItemConfirmation(transaction)"><span aria-hidden="true">&times;</span></button>
+						
+
+					</div>
+				</div>
+			</div>
+			<div class="ml-5 mt-5 pl-5">
+				<h1  class="text-center ml-5 padd-left" ng-if="Transactions.length == 0 && !loading">No Data</h1>
+			</div>
+	</div>
+	</div>
+
+	<div class="modal fade bd-confirmation-modal-lg" id="confirmationModal" tabindex="-1" role="dialog">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">Item Cancellation</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<p>Are your sure to cancel the item?</p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary" ng-click="cancelOrder()">Yes</button>
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal fade bd-create-modal-lg " id="createModal" tabindex="-1" role="dialog">
+		<div class="modal-dialog modal-lg modal-width ">
+			<div class="modal-content">
+				<div class="row">
+					<div class=" col-xl-12 col-lg-12 col-md-12  col-sm-12 col-xs-12">
+						<div class="row pt-3 set-margin  pr-3">
+							<div class=""><b>{{edit ? "Update Transaction" : "New Transaction"}} </b></div>
+							<button type="button" class="close modal-close pl-5 ml-5" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						</div>
+						<div>
+
+							<div class=" input-group mt-3 pr-4">
+								<label class="col-lg-3">User</label>
+								<input type="text" class=" col-lg-9 form-control setmaxwidth" ng-model="newUser.user" />
+							</div>
+							<div class="input-group mt-3 pr-4">
+								<label class="col-lg-3">Amount</label>
+								<input type="text" class=" col-lg-9 form-control setmaxwidth" ng-model="newUser.amount" />
+							
+							</div>
+							<div class="row">
+								<label class="col-lg-2 ml-3 pr-2 pt-4">Currency</label>
+								<div class=" col-lg-9 dropdown show mt-3 ">
+				                    <a class="btn btn-secondary dropdown-toggle currency-style mb-3 mr-2 " href="" role="button" id="dropdownMenuLink" data-toggle="dropdown" name="state" aria-haspopup="true" aria-expanded="false" >
+				                     {{newUser.currency && newUser.currency || 'Currency'}}
+				                    </a>
+
+				                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+				                      <a class="dropdown-item currency-style" ng-click="setCurrency(currency)" ng-repeat="currency in currencies" href="">{{currency}}</a>
+				                    </div>
+	              				</div>
+              				</div>
+
+							<div class="input-group mt-3 pr-4">
+								<label class="col-lg-3">Txn Date</label>
+								<input type="date" id="txnDate" class="col-lg-9 form-control setmaxwidth" placeholder="yyyy-mm-dd" ng-value="newUser.date" ng-model="newUser.txn_date" />
+							</div>
+
+							<div class="row m-5 padd text-center">
+								<button type="button" class="btn btn-outline-success mr-5" data-dismiss="modal" ng-click="addNewTransaction(newUser)">{{edit ? "Update" : "
+								Create"}}</button>
+								<button type="button" class="btn btn-outline-danger mr-3" data-dismiss="modal" ng-click="cancelOrder()"> cancel</button>
+
+							</div>
+
+
+
+
+						</div>
+
+
+
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+	</div>
+
+</div>
+<script>
+	
+var today = new Date();
+var dd = today.getDate();
+var mm = today.getMonth()+1; //January is 0!
+var yyyy = today.getFullYear();
+ if(dd<10){
+        dd='0'+dd
+    } 
+    if(mm<10){
+        mm='0'+mm
+    } 
+
+today = yyyy+'-'+mm+'-'+dd;
+document.getElementById("txnDate").setAttribute("max", today);
+</script>
+
+
+
+
+
+

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="MainApp">
+<head>
+	<!-- Common Meta tags -->
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+
+	<!-- Site Title -->
+	<title id="s_title">TaxBack Mock App Development</title>
+
+    <!-- Build files of concatenated vendor script and css files -->
+	<script src="app/assets/build/vendorscript.min.js"></script>
+	<link href="app/assets/build/vendorstyle.min.css" rel="stylesheet" type="text/css" />
+
+
+	 <!--   custom script and css files -->
+
+	<link href="app/assets/less/style.css" rel="stylesheet" type="text/css" />
+
+
+	<script src="app/module.js"></script>
+	<script src="app/router.js"></script>
+	<script src="app/directive.js"></script>
+	<script src="app/MainController.js"></script>
+	<script src="app/MainService.js"></script>
+
+
+
+
+
+</head>
+
+<body ng-controller="MainController" class=" ">
+	
+	  <div ng-view> </div>
+	<div >
+		  
+	</div>
+
+
+</body>
+</html>

@@ -1,0 +1,128 @@
+
+body {
+  background-color: #e7e5e3;
+  height: 100%;
+  width: 100%;
+  padding: 0px;
+}
+body .container {
+  background: #ffffff;
+  max-width: 1280px;
+  min-height: 759px;
+}
+
+@media (min-width: 1280px)
+  .container {
+    width: 1170px;
+  }
+
+@media (min-width: 992px)
+  .container {
+    width: 970px;
+  }
+
+@media (min-width: 768px) 
+  .container {
+    width: 750px;
+  }
+
+.topnav {
+  background-color: #413d3e;
+  overflow: hidden;
+  color: #ffffff;
+}
+
+ .setwidth {
+       min-width: 219px;
+       max-width: 219px;
+  }
+
+.align-center{
+  text-align: center;
+}
+
+.padd-left{
+  padding-left: 500px;
+}
+
+
+
+ .card .cardlistbackground {
+  color: #ffffff;
+  background-color: #000000;
+}
+
+.card .card-title{
+  text-align: center;
+}
+
+.overlaysetting {
+    margin-top: -27px !important;
+    margin-right: -20px !important;
+}
+
+.card .pic-area {
+  background-color: #808080;
+  padding-top: 50px;
+}
+.setmaxwidth {
+  max-width: 280px;
+}
+
+.height {
+  min-height: 200px;
+}
+
+.setbackgeround {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+
+.modal-width {
+  max-width: 400px;
+}
+
+.set-margin{
+  margin-left: 8rem ;
+}
+
+.padd{
+      padding-left: 40px;
+}
+
+.currency-style{
+    margin-left: 5px;
+    padding-right: 100px;
+    padding-left: 100px;
+}
+
+
+/*loader  */
+
+.loader {
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #3498db;
+  width: 120px;
+  height: 120px;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.loader-margin{
+  margin: 250px;
+}
+
+/* This beautiful CSS-File has been crafted with LESS (lesscss.org)  */
